@@ -19,8 +19,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
         // canvasColor: const Color(0xffFE6B00),
         primaryColor: const Color(0xffFE6B00),
-        primarySwatch:
-            ColorService.createMaterialColor(const Color(0xffFE6B00)),
+        primarySwatch: ColorService.createMaterialColor(
+          const Color(0xffFE6B00),
+        ),
+        cardColor: const Color(0xff007AFF),
         textTheme: const TextTheme(
           displayLarge: TextStyle(fontWeight: FontWeight.bold),
           displaySmall: TextStyle(
@@ -33,6 +35,13 @@ class MyApp extends StatelessWidget {
                 offset: Offset(0, 4),
               ),
             ],
+          ),
+          headlineSmall: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          labelMedium: TextStyle(
+            color: Color(0xff4F4F4F),
           ),
         ),
       ),

@@ -43,7 +43,6 @@ class _TitleScreenState extends State<TitleScreen> {
           },
         ),
         builder: (context, snapshot) {
-          print('called builder');
           return Scaffold(
             backgroundColor: Theme.of(context).primaryColor,
             body: SafeArea(
