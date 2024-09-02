@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jmc/screens/home_screen.dart';
+import 'package:jmc/screens/permission_screen.dart';
 import 'package:jmc/screens/title_screen.dart';
+import 'package:jmc/services/color_service';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        canvasColor: const Color(0xffFE6B00),
+        useMaterial3: false,
+        // canvasColor: const Color(0xffFE6B00),
+        primaryColor: const Color(0xffFE6B00),
+        primarySwatch:
+            ColorService.createMaterialColor(const Color(0xffFE6B00)),
         textTheme: const TextTheme(
           displayLarge: TextStyle(fontWeight: FontWeight.bold),
           displaySmall: TextStyle(
@@ -34,6 +40,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/title': (context) => const TitleScreen(),
         '/home': (context) => const HomeScreen(),
+        '/permission': (context) => const PermissionScreen(),
       },
       home: const TitleScreen(),
     );
