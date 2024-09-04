@@ -43,37 +43,32 @@ class _PermissionScreenState extends State<PermissionScreen> {
             child: Center(
               child: Column(
                 children: [
-                  Container(
-                    child: const Icon(
-                      Icons.location_on,
-                      size: 100,
-                    ),
+                  const Icon(
+                    Icons.location_on,
+                    size: 100,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    child: Text(
-                      '위치 정보 제공에\n동의하지 않으셨습니다.',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
+                  Text(
+                    '위치 정보 제공에\n동의하지 않으셨습니다.',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    child: Text(
-                      '위치정보 제공에 동의하시면\n더 정확한 정보를 전달해드릴 수 있어요.',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.labelMedium,
-                    ),
+                  Text(
+                    '위치정보 제공에 동의하시면\n더 정확한 정보를 전달해드릴 수 있어요.',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                   const SizedBox(
                     height: 25,
                   ),
                   GestureDetector(
                     onTap: () {
+                      // 앱 설정 화면으로
                       Geolocator.openAppSettings();
                     },
                     child: Container(

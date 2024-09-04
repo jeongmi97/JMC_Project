@@ -24,26 +24,49 @@ class MyApp extends StatelessWidget {
         ),
         cardColor: const Color(0xff007AFF),
         textTheme: const TextTheme(
-          displayLarge: TextStyle(fontWeight: FontWeight.bold),
-          displaySmall: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            shadows: [
-              Shadow(
-                blurRadius: 1,
-                color: Color.fromRGBO(0, 0, 0, 0.2),
-                offset: Offset(0, 4),
-              ),
-            ],
-          ),
-          headlineSmall: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-          labelMedium: TextStyle(
-            color: Color(0xff4F4F4F),
-          ),
-        ),
+            displayLarge: TextStyle(),
+            displayMedium: TextStyle(
+              fontSize: 36,
+              letterSpacing: 0.5,
+              height: 1.2,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  blurRadius: 1,
+                  color: Color.fromRGBO(0, 0, 0, 0.2),
+                  offset: Offset(0, 4),
+                ),
+              ],
+            ),
+            displaySmall: TextStyle(),
+            headlineLarge: TextStyle(
+              color: Color.fromRGBO(0, 0, 0, 0.9),
+              fontSize: 30,
+              fontWeight: FontWeight.w900,
+              height: 1.2,
+            ),
+            headlineMedium: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              letterSpacing: 0.5,
+              height: 1.2,
+              shadows: [
+                Shadow(
+                  blurRadius: 1,
+                  color: Color.fromRGBO(0, 0, 0, 0.2),
+                  offset: Offset(0, 4),
+                ),
+              ],
+            ),
+            headlineSmall: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            labelMedium: TextStyle(
+              color: Color(0xff4F4F4F),
+            ),
+            bodySmall: TextStyle()),
       ),
       initialRoute: '/title',
       routes: {

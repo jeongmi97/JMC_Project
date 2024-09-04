@@ -35,7 +35,6 @@ class _TitleScreenState extends State<TitleScreen> {
     return FutureBuilder(
         future: Future.delayed(
           const Duration(seconds: 2),
-          // () => Navigator.pushNamed(context, '/home'),
           () {
             isPermission
                 ? Navigator.pushNamed(context, '/home')
@@ -55,7 +54,7 @@ class _TitleScreenState extends State<TitleScreen> {
                       children: [
                         Text(
                           "점\n메\n추",
-                          style: Theme.of(context).textTheme.displaySmall,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         const Icon(
                           Icons.horizontal_rule,
@@ -71,7 +70,7 @@ class _TitleScreenState extends State<TitleScreen> {
                         ),
                         Text(
                           "심\n뉴\n천",
-                          style: Theme.of(context).textTheme.displaySmall,
+                          style: Theme.of(context).textTheme.displayMedium,
                         )
                       ],
                     ),
