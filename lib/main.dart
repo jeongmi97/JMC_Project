@@ -75,6 +75,7 @@ class MyApp extends StatelessWidget {
         '/permission': (context) => const PermissionScreen(),
       },
       home: const TitleScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

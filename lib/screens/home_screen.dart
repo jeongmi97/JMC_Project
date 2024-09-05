@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jmc/widgets/home_button_widget.dart';
+import 'package:jmc/widgets/popup_ment_itme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,6 +10,8 @@ class HomeScreen extends StatelessWidget {
     final displayMediumCopy =
         Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 35);
 
+    var appBarHeight = AppBar().preferredSize.height;
+
     return SafeArea(
       child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,
@@ -16,14 +19,37 @@ class HomeScreen extends StatelessWidget {
             elevation: 0,
             leading: IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
             actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 30,
-                  ))
+              PopupMenuButton(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                // shadowColor: const Color.fromRGBO(0, 0, 0, 0.2),
+                // elevation: 100,
+                color: Colors.white,
+                offset: Offset(0.0, appBarHeight),
+                icon: const Icon(
+                  Icons.menu,
+                  size: 30,
+                ),
+                itemBuilder: (context) => <PopupMenuEntry>[
+                  const PopupMenuItem(
+                      child: Text(
+                    '설정',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900),
+                  )),
+                  const PopupMenuDivider(),
+                  menuItem('로그인 하기', const Icon(Icons.account_box_outlined),
+                      "/login"),
+                  menuItem('마이페이지', const Icon(Icons.textsms_outlined), ""),
+                  menuItem('문의 하기', const Icon(Icons.chat_bubble_outline), ""),
+                  const PopupMenuDivider(),
+                  menuItem('Logout', const Icon(Icons.logout), ""),
+                ],
+              ),
             ],
           ),
+          // drawer: const Drawer(
+          //   child: Text('aaa'),
+          // ),
           body: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
