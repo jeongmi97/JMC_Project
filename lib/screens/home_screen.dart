@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
             elevation: 0,
             leading: IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
             actions: const [
+              // 팝업 메뉴 위젯 분리
               PopupMenuButtonWidget(),
             ],
           ),

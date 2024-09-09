@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jmc/screens/home_screen.dart';
+import 'package:jmc/screens/login_screen.dart';
+import 'package:jmc/screens/menu_screen.dart';
 import 'package:jmc/screens/permission_screen.dart';
 import 'package:jmc/screens/title_screen.dart';
 import 'package:jmc/services/color_service';
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: false,
         // canvasColor: const Color(0xffFE6B00),
@@ -63,19 +66,24 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
+            labelLarge: TextStyle(
+              color: Colors.black,
+            ),
             labelMedium: TextStyle(
               color: Color(0xff4F4F4F),
             ),
             bodySmall: TextStyle()),
       ),
-      initialRoute: '/title',
+      // initialRoute: '/title',
       routes: {
         '/title': (context) => const TitleScreen(),
         '/home': (context) => const HomeScreen(),
         '/permission': (context) => const PermissionScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/menu': (context) => const MenuScreen(),
       },
-      home: const TitleScreen(),
-      debugShowCheckedModeBanner: false,
+      // home: const TitleScreen(),
+      home: const HomeScreen(),
     );
   }
 }

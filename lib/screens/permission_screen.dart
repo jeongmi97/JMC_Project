@@ -13,7 +13,6 @@ class PermissionScreen extends StatefulWidget {
 class _PermissionScreenState extends State<PermissionScreen> {
   Future requestPermission() async {
     LocationPermission permission = await Geolocator.requestPermission();
-    print(permission);
     if (permission == LocationPermission.denied ||
         permission == LocationPermission.deniedForever) {
     } else {
