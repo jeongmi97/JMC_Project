@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:jmc/models/user_model.dart';
 import 'package:sign_button/constants.dart';
 import 'package:sign_button/create_button.dart';
 
@@ -14,22 +19,31 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   GoogleSignIn googleSignIn = GoogleSignIn();
-  bool isSigned = false;
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   login() async {
-    isSigned = await googleSignIn.isSignedIn();
+    // isSigned = await googleSignIn.isSignedIn();
     GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     if (googleUser != null) {
-      print('is user');
-      print(googleUser);
-    } else {
-      print('is not user');
-      print(googleUser);
+      const storage = FlutterSecureStorage();
+
+      var id = googleUser.id;
+      log('googleSignInAccoutn id : $id');
+      storage.deleteAll();
+      storage.write(key: 'id', value: id);
+      Navigator.pushNamed(context, '/home');
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final labelMediumCopy =
+        Theme.of(context).textTheme.labelMedium!.copyWith(color: Colors.black);
+    final labelLargeCopy = Theme.of(context)
+        .textTheme
+        .labelLarge!
+        .copyWith(fontWeight: FontWeight.w600, color: const Color(0xff4285f4));
+
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -74,9 +88,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   '로그인',
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
                 Text(
                   '점메추는 구글메일로 로그인이 가능해요.',
-                  style: Theme.of(context).textTheme.labelMedium,
+                  style: labelMediumCopy,
                 ),
               ],
             ),
@@ -121,13 +138,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
+                Text(
                   '점메추는 처음이신가요?',
+                  // style: labelLargeMent,
+                  style: Theme.of(context).textTheme.labelLarge,
                 ),
                 TextButton(
                   child: Text(
                     '회원가입',
-                    style: Theme.of(context).textTheme.labelLarge,
+                    style: labelLargeCopy,
                   ),
                   onPressed: () {
                     login();
