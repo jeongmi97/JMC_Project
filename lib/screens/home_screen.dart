@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
             elevation: 0,
-            leading: IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
+            automaticallyImplyLeading: false,
             actions: const [
               // 팝업 메뉴 위젯 분리
               PopupMenuButtonWidget(),
@@ -41,15 +41,15 @@ class HomeScreen extends StatelessWidget {
                       HomeButtonWidget(
                           title: "메뉴를\n추천 받기",
                           comment: "근처에 있는 식당들 메뉴 중\n하나를 추천해드려요.",
-                          root: "/"),
+                          root: "/menu"),
                       HomeButtonWidget(
                           title: "새로 생긴 곳\n알아보기",
                           comment: "근처에 있는 식당들 중 새로 오픈한 곳을\n알려드려요.",
-                          root: "/"),
+                          root: "/menu"),
                       HomeButtonWidget(
                           title: "지도로\n근처 맛집 찾기",
                           comment: "지도를 보며 맛집을 고를 수 있어요.",
-                          root: "/"),
+                          root: "/menu"),
                     ],
                   ),
                 ),

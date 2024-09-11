@@ -42,7 +42,11 @@ class MyApp extends StatelessWidget {
                 ),
               ],
             ),
-            displaySmall: TextStyle(),
+            displaySmall: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+              fontSize: 20,
+            ),
             headlineLarge: TextStyle(
               color: Color.fromRGBO(0, 0, 0, 0.9),
               fontSize: 30,

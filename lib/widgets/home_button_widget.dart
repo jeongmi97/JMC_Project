@@ -14,21 +14,25 @@ class HomeButtonWidget extends StatelessWidget {
     final bodySmallCopy =
         Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black);
 
-    return Container(
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, root),
+      child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.symmetric(vertical: 15),
         alignment: Alignment.center,
         width: double.infinity,
         height: 140,
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                  blurRadius: 3,
-                  color: Color.fromRGBO(0, 0, 0, 0.2),
-                  offset: Offset(5, 5))
-            ]),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 3,
+              color: Color.fromRGBO(0, 0, 0, 0.2),
+              offset: Offset(5, 5),
+            ),
+          ],
+        ),
         child: Column(
           children: [
             Text(
@@ -45,6 +49,8 @@ class HomeButtonWidget extends StatelessWidget {
               style: bodySmallCopy,
             )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
