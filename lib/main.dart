@@ -70,6 +70,15 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
+            bodyLarge: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+            ),
+            bodyMedium: TextStyle(
+              color: Color(0xff4F4F4F),
+              fontSize: 14,
+            ),
             labelLarge: TextStyle(
               color: Colors.black,
             ),
