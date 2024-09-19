@@ -201,6 +201,7 @@ class MenuScreen extends StatelessWidget {
                         onPressed: () {
                           showModalBottomSheet(
                             context: context,
+                            backgroundColor: Colors.transparent,
                             builder: (context) {
                               return const ModalBottomWidget();
                             },
