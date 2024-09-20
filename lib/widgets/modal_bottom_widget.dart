@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:jmc/widgets/checked_button_widget.dart';
+import 'package:jmc/widgets/unchecked_button_widget.dart';
 
-class ModalBottomWidget extends StatelessWidget {
+class ModalBottomWidget extends StatefulWidget {
   const ModalBottomWidget({super.key});
+
+  @override
+  State<ModalBottomWidget> createState() => _ModalBottomWidgetState();
+}
+
+class _ModalBottomWidgetState extends State<ModalBottomWidget> {
+  bool isVisit = false;
+  bool isFavorit = false;
+
+  buttonTap(String type) {
+    if (type == 'visit') {
+      setState(() {
+        isVisit = !isVisit;
+      });
+    }
+
+    if (type == 'favorit') {
+      setState(() {
+        isFavorit = !isFavorit;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +82,23 @@ class ModalBottomWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite_outline,
-                  color: Color(0xffFE6B00),
-                ),
-                alignment: Alignment.centerRight,
-              )
+              GestureDetector(
+                onTap: () {
+                  buttonTap('visit');
+                },
+                child: isVisit
+                    ? const CheckedButtonWidget()
+                    : const UncheckedButtonWidget(),
+              ),
+
+              // IconButton(
+              //   onPressed: () {},
+              //   icon: const Icon(
+              //     Icons.favorite_outline,
+              //     color: Color(0xffFE6B00),
+              //   ),
+              //   alignment: Alignment.centerRight,
+              // )
             ],
           ),
           const SizedBox(
@@ -93,14 +127,14 @@ class ModalBottomWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite,
-                  color: Color(0xffFE6B00),
-                ),
-                alignment: Alignment.centerRight,
-              )
+              GestureDetector(
+                onTap: () {
+                  buttonTap('favorit');
+                },
+                child: isFavorit
+                    ? const CheckedButtonWidget()
+                    : const UncheckedButtonWidget(),
+              ),
             ],
           ),
           const SizedBox(
