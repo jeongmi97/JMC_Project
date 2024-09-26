@@ -1,18 +1,25 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:jmc/widgets/checked_button_widget.dart';
+import 'package:jmc/widgets/modal_login_widget.dart';
+import 'package:jmc/widgets/modal_main_widget.dart';
 import 'package:jmc/widgets/unchecked_button_widget.dart';
 
-class ModalBottomWidget extends StatefulWidget {
-  const ModalBottomWidget({super.key});
+class LikeModalBottomWidget extends StatefulWidget {
+  const LikeModalBottomWidget({super.key});
 
   @override
-  State<ModalBottomWidget> createState() => _ModalBottomWidgetState();
+  State<LikeModalBottomWidget> createState() => _LikeModalBottomWidget();
 }
 
-class _ModalBottomWidgetState extends State<ModalBottomWidget> {
+class _LikeModalBottomWidget extends State<LikeModalBottomWidget> {
   bool isVisit = false;
   bool isFavorit = false;
+  String? loginValue = "";
+  bool isLogin = false;
 
   buttonTap(String type) {
     if (type == 'visit') {
@@ -26,6 +33,27 @@ class _ModalBottomWidgetState extends State<ModalBottomWidget> {
         isFavorit = !isFavorit;
       });
     }
+  }
+
+  getLoginRepo() async {
+    const storage = FlutterSecureStorage();
+    loginValue = await storage.read(key: "id");
+
+    if (loginValue == null) {
+      setState(() {
+        isLogin = false;
+      });
+    } else {
+      setState(() {
+        isLogin = true;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getLoginRepo();
   }
 
   @override
@@ -146,7 +174,18 @@ class _ModalBottomWidgetState extends State<ModalBottomWidget> {
                 Size(165, 35),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return isLogin
+                      ? const ModalMainWidget()
+                      : const ModalLoginWidget();
+                  // return const ModalMainWidget();
+                  // return const ModalLoginWidget();
+                },
+              );
+            },
             child: Text(
               '저장하기',
               style: displaySmallCopy,

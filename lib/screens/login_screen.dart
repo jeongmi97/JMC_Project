@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       log('googleSignInAccoutn id : $id');
       storage.deleteAll();
       storage.write(key: 'id', value: id);
-      Navigator.pushNamed(context, '/home');
+      Navigator.pushNamed(context, '/menu');
     }
   }
 

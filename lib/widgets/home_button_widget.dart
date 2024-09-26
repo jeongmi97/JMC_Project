@@ -12,7 +12,7 @@ class HomeButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bodySmallCopy =
-        Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black);
+        Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 14);
 
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, root),

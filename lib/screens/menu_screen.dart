@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jmc/widgets/modal_bottom_widget.dart';
+import 'package:jmc/widgets/like_modal_bottom_widget.dart';
 import 'package:jmc/widgets/popup_menu_button.dart';
+import 'package:jmc/widgets/report_modal_bottom_widget.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -203,7 +204,7 @@ class MenuScreen extends StatelessWidget {
                             context: context,
                             backgroundColor: Colors.transparent,
                             builder: (context) {
-                              return const ModalBottomWidget();
+                              return const LikeModalBottomWidget();
                             },
                           );
                         },
@@ -226,7 +227,15 @@ class MenuScreen extends StatelessWidget {
                             Size(150, 30),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            builder: (context) {
+                              return const ReportModalBottomWidget();
+                            },
+                          );
+                        },
                       ),
                     ],
                   ),
