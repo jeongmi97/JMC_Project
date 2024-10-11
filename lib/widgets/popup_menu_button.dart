@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:jmc/services/store_api_service.dart';
 
 class PopupMenuButtonWidget extends StatefulWidget {
   const PopupMenuButtonWidget({super.key});
@@ -100,7 +101,9 @@ class _PopupMenuButtonClassState extends State<PopupMenuButtonWidget> {
           ),
         PopupMenuItem(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
-          onTap: () => Navigator.pushNamed(context, ""),
+          onTap: () {
+            StoreApiService.echo();
+          },
           child: const ListTile(
             leading: Icon(Icons.textsms_outlined),
             title: Text(
